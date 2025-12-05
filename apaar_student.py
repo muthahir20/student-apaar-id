@@ -12,8 +12,8 @@ DB_NAME = "students"
 
 engine = create_engine(
     f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB_NAME}"
+    "?ssl_verify_cert=false&ssl_verify_identity=false"
 )
-
 # ---------------------------------------------------------
 # STATE FIX (IMPORTANT)
 # ---------------------------------------------------------
@@ -69,4 +69,5 @@ if st.session_state.student_loaded:
         # reset state
         st.session_state.student_loaded = False
         st.session_state.student_data = None
+
 
