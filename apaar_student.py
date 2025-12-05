@@ -1,5 +1,6 @@
 import streamlit as st
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
+
 
 # ---------------------------------------------------------
 # TiDB CONNECTION
@@ -69,5 +70,6 @@ if st.session_state.student_loaded:
         # reset state
         st.session_state.student_loaded = False
         st.session_state.student_data = None
+
 
 
