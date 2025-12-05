@@ -1,5 +1,5 @@
 import streamlit as st
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 
 # ---------------------------------------------------------
 # TiDB CONNECTION
@@ -8,10 +8,10 @@ USERNAME = "kCCeTyfqG4q97x6.root"
 PASSWORD = "O5K4JarXblpcn7gg"
 HOST = "gateway01.ap-southeast-1.prod.aws.tidbcloud.com"
 PORT = 4000
-DATABASE = "students"
+DB_NAME = "students"
 
 engine = create_engine(
-    f"mysql+mysqlconnector://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+    f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB_NAME}"
 )
 
 # ---------------------------------------------------------
@@ -69,3 +69,4 @@ if st.session_state.student_loaded:
         # reset state
         st.session_state.student_loaded = False
         st.session_state.student_data = None
+
