@@ -65,6 +65,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+st.markdown("<div class='main-title'>The New College</div>", unsafe_allow_html=True)
 
 st.markdown("<div class='main-title'>Student APAAR Portal</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Enter your details to update APAAR ID</div>", unsafe_allow_html=True)
@@ -164,4 +165,5 @@ if st.session_state.student:
         st.stop()
 
 st.markdown("</div>", unsafe_allow_html=True)
+
 
