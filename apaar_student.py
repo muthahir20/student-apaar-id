@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text
 
 st.set_page_config(
     page_title="The New College",
-    #page_icon="🎓",  # optional, you can use emoji or path to .ico/png
+    page_icon="🎓",  # optional, you can use emoji or path to .ico/png
     layout="centered"
 )
 
@@ -165,5 +165,6 @@ if st.session_state.student:
         st.stop()
 
 st.markdown("</div>", unsafe_allow_html=True)
+
 
 
