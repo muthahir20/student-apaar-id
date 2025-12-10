@@ -11,16 +11,19 @@ st.set_page_config(
 # ------------------------------
 # TiDB CONNECTION
 # ------------------------------
-USERNAME = "kCCeTyfqG4q97x6.root"
-PASSWORD = "O5K4JarXblpcn7gg"
-HOST = "gateway01.ap-southeast-1.prod.aws.tidbcloud.com"
-PORT = 4000
-DB_NAME = "students"
+# Load secrets
+config = st.secrets["tiddb"]
 
-engine = create_engine(
-    f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB_NAME}"
-    "?ssl_verify_cert=false&ssl_verify_identity=false"
-)
+USERNAME = config["USERNAME"]
+PASSWORD = config["PASSWORD"]
+HOST = config["HOST"]
+PORT = config["PORT"]
+DATABASE = config["DATABASE"]
+
+# SQLAlchemy URL
+DATABASE_URL = f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}?ssl_verify_cert=true"
+
+engine = create_engine(DATABASE_URL)
 
 # ------------------------------
 # SESSION STATE DEFAULTS
@@ -165,6 +168,7 @@ if st.session_state.student:
         st.stop()
 
 st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
